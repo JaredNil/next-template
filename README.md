@@ -1,1 +1,2 @@
-Пу-пу-пу.
+npm create vite@latest
+  React, Typescript
