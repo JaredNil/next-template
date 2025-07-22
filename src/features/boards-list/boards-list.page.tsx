@@ -1,5 +1,6 @@
-import { ROUTES } from "@/shared/routes/routes";
 import { href, Link } from "react-router-dom";
+
+import { ROUTES } from "@/shared/routes/routes";
 
 function BoardsListPage() {
   return (

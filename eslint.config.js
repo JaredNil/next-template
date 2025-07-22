@@ -1,10 +1,12 @@
 import js from '@eslint/js'
-import globals from 'globals'
+import { globalIgnores } from 'eslint/config'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
+import globals from 'globals'
 import tseslint from 'typescript-eslint'
-import { globalIgnores } from 'eslint/config'
+
 import { eslintBoundariesConfig } from "./eslint.boundaries.js";
+import { eslintImportConfig } from './eslint.import.js'
 
 export default tseslint.config([
   globalIgnores(['dist', 'node_modules', 'zmaterials']),
@@ -28,4 +30,5 @@ export default tseslint.config([
     },
   },
   eslintBoundariesConfig,
+  eslintImportConfig
 ])
