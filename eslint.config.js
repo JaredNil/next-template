@@ -7,18 +7,24 @@ import { globalIgnores } from 'eslint/config'
 import { eslintBoundariesConfig } from "./eslint.boundaries.js";
 
 export default tseslint.config([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'node_modules', 'zmaterials']),
   {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite,
-    ],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ["**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+    },
+    plugins: {
+      "react-hooks": reactHooks,
+      "react-refresh": reactRefresh,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      "react-refresh/only-export-components": [
+        "warn",
+        { allowConstantExport: true },
+      ],
     },
   },
   eslintBoundariesConfig,

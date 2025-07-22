@@ -10,7 +10,7 @@ export const eslintBoundariesConfig = {
         alwaysTryTypes: true,
       },
     },
-
+    "boundaries/dependency-nodes": ["import", "dynamic-import"],
     "boundaries/elements": [
       {
         type: "app",
@@ -61,7 +61,7 @@ export const eslintBoundariesConfig = {
           },
           {
             target: ["features"],
-            allow: "index.(ts|tsx)",
+            allow: ["index.(ts|tsx)", "*.page.tsx"],
           },
         ],
       },
