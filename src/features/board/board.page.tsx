@@ -1,5 +1,9 @@
+import { useParams } from "react-router-dom";
+
 function BoardPage() {
-  return <div>Board page</div>;
+  const params = useParams();
+
+  return <div>Board page {params.boardId}</div>;
 }
 
 export const Component = BoardPage;
