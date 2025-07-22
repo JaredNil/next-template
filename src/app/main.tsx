@@ -5,8 +5,19 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>
-);
+async function enableMocking() {
+  if (import.meta.env.PROD) {
+    return;
+  }
+
+  const { worker } = await import("@/shared/openapi/mocks/browser");
+  return worker.start();
+}
+
+enableMocking().then(() => {
+  createRoot(document.getElementById("root")!).render(
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  );
+});

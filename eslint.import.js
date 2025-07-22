@@ -11,7 +11,7 @@ export const eslintImportConfig = {
             "groups": [
               "builtin",    // node core modules
               "external",   // node_modules
-              ["internal", "parent", "sibling", "index"] // остальные (будут разбиты алиасами ниже)
+              ["internal", "parent", "sibling", "index"]
             ],
             "pathGroups": [
               {

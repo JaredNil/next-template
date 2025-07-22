@@ -1,12 +1,16 @@
 import { Outlet } from "react-router-dom";
 
+import { Providers } from "./providers";
 import { AppHeader } from "@/features/header";
 
 export function App() {
+
   return (
-    <div>
-      <AppHeader />
-      <Outlet />
-    </div>
+    <Providers>
+      <div>
+        <AppHeader />
+        <Outlet />
+      </div>
+    </Providers>
   );
 }
