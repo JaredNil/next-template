@@ -9,6 +9,13 @@ schemas:
         type: string
       name:
         type: string
+  CreateBoard:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
 
 
 getAllBoards:
@@ -36,12 +43,7 @@ createBoard:
     content:
       application/json:
         schema:
-          type: object
-          required:
-            - name
-          properties:
-            name:
-              type: string
+          $ref: '#/schemas/CreateBoard'
   responses:
     '201':
       description: Board created successfully
