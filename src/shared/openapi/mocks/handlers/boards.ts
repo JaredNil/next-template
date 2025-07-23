@@ -14,7 +14,7 @@ const boards: ApiSchemas["Board"][] = [
   },
 ];
 
-export const handlers = [
+export const boardHandlers = [
   http.get("/boards", () => {
     return HttpResponse.json(boards);
   }),
