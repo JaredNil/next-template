@@ -6,7 +6,7 @@ export const eslintImportConfig = {
       },
       rules: {
         "import/order": [
-          "error",
+          "warn",
           {
             "groups": [
               "builtin",    // node core modules

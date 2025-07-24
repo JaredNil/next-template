@@ -6,9 +6,6 @@ import { router } from "./router";
 import "./index.css";
 
 export async function enableMocking() {
-  if (import.meta.env.PROD) {
-    return;
-  }
 
   const { worker } = await import("@/shared/openapi/mocks/browser");
   return worker.start();

@@ -240,7 +240,6 @@ export const boardsHandlers = [
     await verifyTokenOrThrow(request);
     const { boardId } = params;
     const index = boards.findIndex((board) => board.id === boardId);
-
     if (index === -1) {
       return HttpResponse.json(
         { message: "Board not found", code: "NOT_FOUND" },

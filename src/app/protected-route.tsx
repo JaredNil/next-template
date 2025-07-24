@@ -19,7 +19,7 @@ export async function protectedLoader(){
     const token = await useSession.getState().getFreshToken()
 
     if (!token) {
-        return redirect(ROUTES.LOGIN)
+        redirect(ROUTES.LOGIN)
     } 
     return null
 }
