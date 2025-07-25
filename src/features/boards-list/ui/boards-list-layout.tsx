@@ -8,12 +8,14 @@ export function BoardsListLayout({
     children,
     header,
     filters,
-    sidebar
+    sidebar,
+    templates
 }: {
     children?: ReactNode
     header?: ReactNode
     filters?: ReactNode
     sidebar?: ReactNode
+    templates?: ReactNode
 }) {
     
     return (
@@ -21,6 +23,9 @@ export function BoardsListLayout({
           <div className="flex gap-4">
             {sidebar}
             <div className="flex-1">
+              {templates && (
+                <div className="rounded-md bg-gray-100 p-4">{templates}</div>
+              )}
               {header}
               {filters}
               {children}
