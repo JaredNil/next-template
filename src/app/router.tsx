@@ -3,6 +3,7 @@ import { createBrowserRouter, redirect } from 'react-router-dom';
 import { protectedLoader, ProtectedRoute } from './protectedRoute';
 import { App } from '@/app/app';
 import { ROUTES } from '@/shared/routes/routes';
+import { ErrorBoundary } from '@/shared/errorBoundary/error-boundary';
 
 export const router = createBrowserRouter([
   {
@@ -40,5 +41,6 @@ export const router = createBrowserRouter([
         loader: () => redirect(ROUTES.BOARDS),
       },
     ],
+    errorElement: <ErrorBoundary />,
   },
 ]);

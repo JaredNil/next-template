@@ -5,20 +5,15 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './router';
 import './index.css';
 
-let isWorkerStarted = false;
-
-export async function enableMocking(isWorkerStarted: boolean) {
-  if(!isWorkerStarted){
-    console.warn(isWorkerStarted)
-    const { worker } = await import('@/shared/openapi/mocks/browser');
-    return worker.start();
-  }
+export async function enableMocking() {
+  const { worker } = await import('@/shared/openapi/mocks/browser');
+  return worker.start();
 }
 
-enableMocking(isWorkerStarted).then(() => {
+enableMocking().then(() => {
   createRoot(document.getElementById('root')!).render(
     <StrictMode>
       <RouterProvider router={router} />
     </StrictMode>
   );
-}).finally(()=> {isWorkerStarted = true});
+});
