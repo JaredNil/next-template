@@ -1,4 +1,4 @@
-import type { WindowPosition } from '../domain/windowPosition';
+import type { WindowPosition } from '../model/windowPosition';
 
 export function pointOnScreenToCanvas(
   point: { x: number; y: number },

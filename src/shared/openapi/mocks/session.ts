@@ -7,7 +7,7 @@ type Session = {
 };
 
 const JWT_SECRET = new TextEncoder().encode('your-secret-key');
-const ACCESS_TOKEN_EXPIRY = '3000s';
+const ACCESS_TOKEN_EXPIRY = '5s';
 const REFRESH_TOKEN_EXPIRY = '7d';
 
 export function createRefreshTokenCookie(refreshToken: string) {
