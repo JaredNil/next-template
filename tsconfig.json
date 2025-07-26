@@ -2,8 +2,8 @@
   "files": [],
   // aliases schema
   "references": [
-    { "path": "./config/typescript/tsconfig.app.json" },
-    { "path": "./config/typescript/tsconfig.node.json" }
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
     "baseUrl": ".",
