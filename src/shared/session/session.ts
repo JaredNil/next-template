@@ -1,5 +1,5 @@
 import { createGStore } from "create-gstore";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import { useMemo, useState } from "react";
 
 import { fetchClient } from "@/shared/openapi/instance";
@@ -35,9 +35,11 @@ export const useSession = createGStore(() => {
 
     if (res.exp < Date.now() / 1000) {
       if (!refreshTokenPromise) {
-        refreshTokenPromise = fetchClient.POST("/auth/refresh", {}).finally(() => {
-          refreshTokenPromise = null;
-        });
+        refreshTokenPromise = fetchClient
+          .POST("/auth/refresh", {})
+          .finally(() => {
+            refreshTokenPromise = null;
+          });
       }
 
       const res = await refreshTokenPromise;
@@ -55,13 +57,13 @@ export const useSession = createGStore(() => {
 
   const session = useMemo(
     () => (!token ? null : jwtDecode<Session>(token)),
-    [token]
+    [token],
   );
 
   return {
     session,
     getFreshToken,
     logout: removeToken,
-    login: updateToken
+    login: updateToken,
   };
 });

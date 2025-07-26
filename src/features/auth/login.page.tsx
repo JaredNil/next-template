@@ -5,7 +5,6 @@ import { LoginForm } from "./ui/login-form";
 import { ROUTES } from "@/shared/routes/routes";
 
 function LoginPage() {
-  
   return (
     <AuthLayout
       title="Вход в систему"

@@ -4,30 +4,33 @@ import { useBoardsList } from "./hooks";
 import { BoardCard } from "./ui/board-card";
 import { BoardItem } from "./ui/board-item";
 import { BoardsSidebar } from "./ui/board-sidebar";
-import { BoardsListLayout, BoardsListLayoutContent, BoardsListLayoutHeader } from "./ui/boards-list-layout";
+import {
+  BoardsListLayout,
+  BoardsListLayoutContent,
+  BoardsListLayoutHeader,
+} from "./ui/boards-list-layout";
 import { ViewModeToggle, type ViewMode } from "./ui/view-mode-toggle";
 
-
 function BoardsListFavoritePage() {
-
   const boardsQuery = useBoardsList({
     isFavorite: true,
-  })
+  });
 
   const [viewMode, setViewMode] = useState("cards" as ViewMode);
 
   return (
     <>
-      <BoardsListLayout 
-        sidebar={
-          <BoardsSidebar/>
-        }
+      <BoardsListLayout
+        sidebar={<BoardsSidebar />}
         header={
-          <BoardsListLayoutHeader 
+          <BoardsListLayoutHeader
             title="Избранное"
             description="Здесь вы можете рассматривать и управлять своими досками"
             actions={
-              <ViewModeToggle onChange={value => setViewMode(value)} value={viewMode} />
+              <ViewModeToggle
+                onChange={(value) => setViewMode(value)}
+                value={viewMode}
+              />
             }
           />
         }
@@ -52,8 +55,7 @@ function BoardsListFavoritePage() {
         />
       </BoardsListLayout>
     </>
-  )
-
+  );
 }
 
 export const Component = BoardsListFavoritePage;

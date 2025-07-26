@@ -11,9 +11,7 @@ components:
       scheme: bearer
       bearerFormat: JWT
 
-
 paths:
-
   /auth/login:
     post:
       $ref: "./endpoints/auth.yaml#/login"

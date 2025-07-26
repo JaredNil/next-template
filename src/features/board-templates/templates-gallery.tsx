@@ -1,5 +1,4 @@
 import { TemplateCard } from "./template-card";
-
 import { ScrollArea } from "@/shared/ui/kit/scroll-area";
 
 const templates = [

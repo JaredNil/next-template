@@ -1,15 +1,15 @@
-import js from '@eslint/js'
-import { globalIgnores } from 'eslint/config'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import globals from 'globals'
-import tseslint from 'typescript-eslint'
+import js from "@eslint/js";
+import { globalIgnores } from "eslint/config";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
 import { eslintBoundariesConfig } from "./eslint.boundaries.js";
-import { eslintImportConfig } from './eslint.import.js'
+import { eslintImportConfig } from "./eslint.import.js";
 
 export default tseslint.config([
-  globalIgnores(['dist', 'node_modules', 'zmaterials']),
+  globalIgnores(["dist", "node_modules", "zmaterials"]),
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],
@@ -30,5 +30,5 @@ export default tseslint.config([
     },
   },
   eslintBoundariesConfig,
-  eslintImportConfig
-])
+  eslintImportConfig,
+]);

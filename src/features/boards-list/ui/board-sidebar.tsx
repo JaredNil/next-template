@@ -1,5 +1,4 @@
-
-import { LayoutGridIcon, StarIcon, ClockIcon } from "lucide-react"; 
+import { LayoutGridIcon, StarIcon, ClockIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { cn } from "@/shared/lib/css";

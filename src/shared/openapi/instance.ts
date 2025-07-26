@@ -1,4 +1,3 @@
-
 import createFetchClient from "openapi-fetch";
 import createClient from "openapi-react-query";
 
@@ -13,26 +12,26 @@ export const fetchClient = createFetchClient<paths>({
 export const rqClient = createClient(fetchClient);
 
 fetchClient.use({
-  async onRequest({request}) {
+  async onRequest({ request }) {
     const token = await useSession.getState().getFreshToken();
     if (token) {
-      request.headers.set("Authorization", `Bearer ${token}`)
-    }
-    else {
+      request.headers.set("Authorization", `Bearer ${token}`);
+    } else {
       return new Response(
-        JSON.stringify({code: "NOT AUTH", message: "Ошибка аутентификации"} as ApiSchemas["Error"]), 
+        JSON.stringify({
+          code: "NOT AUTH",
+          message: "Ошибка аутентификации",
+        } as ApiSchemas["Error"]),
         {
           status: 401,
-          headers: { "Content-Type": "application/json"}
+          headers: { "Content-Type": "application/json" },
         },
-      )
+      );
     }
-  }
-})
-
+  },
+});
 
 export const publicFetchClient = createFetchClient<paths>({
   baseUrl: envResolver.VITE_API_BASE_URL,
 });
 export const publicRqClient = createClient(publicFetchClient);
-

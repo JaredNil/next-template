@@ -4,14 +4,13 @@ import { protectedLoader, ProtectedRoute } from "./protected-route";
 import { App } from "@/app/app";
 import { ROUTES } from "@/shared/routes/routes";
 
-
 export const router = createBrowserRouter([
   {
     element: <App />,
     children: [
       {
         loader: protectedLoader,
-        element: <ProtectedRoute/>,
+        element: <ProtectedRoute />,
         children: [
           {
             path: ROUTES.BOARDS,
@@ -19,13 +18,14 @@ export const router = createBrowserRouter([
           },
           {
             path: ROUTES.BOARDS_FAV,
-            lazy: () => import("@/features/boards-list/boards-list-favorite.page"),
+            lazy: () =>
+              import("@/features/boards-list/boards-list-favorite.page"),
           },
           {
             path: ROUTES.BOARD,
             lazy: () => import("@/features/board/board.page"),
           },
-        ]
+        ],
       },
       {
         path: ROUTES.LOGIN,

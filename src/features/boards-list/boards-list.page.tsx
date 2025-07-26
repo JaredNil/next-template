@@ -2,11 +2,20 @@ import { PlusIcon } from "lucide-react";
 import { useState } from "react";
 
 import { useBoardFilters, useBoardsList, useCreateBoard } from "./hooks";
-import { TemplatesGallery, TemplatesModal, useTemplatesModal } from "../board-templates";
+import {
+  TemplatesGallery,
+  TemplatesModal,
+  useTemplatesModal,
+} from "../board-templates";
 import { BoardCard } from "./ui/board-card";
 import { BoardItem } from "./ui/board-item";
 import { BoardsSidebar } from "./ui/board-sidebar";
-import { BoardsListLayout, BoardsListLayoutContent, BoardsListLayoutFilters, BoardsListLayoutHeader } from "./ui/boards-list-layout";
+import {
+  BoardsListLayout,
+  BoardsListLayoutContent,
+  BoardsListLayoutFilters,
+  BoardsListLayoutHeader,
+} from "./ui/boards-list-layout";
 import { ViewModeToggle, type ViewMode } from "./ui/view-mode-toggle";
 import { useDebouncedValue } from "@/shared/hooks";
 import type { BoardSortOptions } from "@/shared/types";
@@ -20,46 +29,39 @@ import {
   SelectValue,
 } from "@/shared/ui/kit/select";
 
-
-
 function BoardsListPage() {
-
   const boardsFilters = useBoardFilters();
   const boardsQuery = useBoardsList({
     search: useDebouncedValue(boardsFilters.search, 300),
-    sort: boardsFilters.sort
-  })
+    sort: boardsFilters.sort,
+  });
 
   const creatingBoard = useCreateBoard();
 
   const [viewMode, setViewMode] = useState("cards" as ViewMode);
 
-  const templatesModal = useTemplatesModal()
+  const templatesModal = useTemplatesModal();
 
   return (
     <>
       <TemplatesModal />
       <BoardsListLayout
-        templates={
-          <TemplatesGallery />
-        }
-        sidebar={
-          <BoardsSidebar/>
-        }
+        templates={<TemplatesGallery />}
+        sidebar={<BoardsSidebar />}
         header={
-          <BoardsListLayoutHeader 
+          <BoardsListLayoutHeader
             title="Доски"
             description="Здесь вы можете рассматривать и управлять своими досками"
-            actions={    
+            actions={
               <div className="flex gap-2">
                 <Button variant="outline" onClick={() => templatesModal.open()}>
                   Выбрать шаблон
-                </Button>   
+                </Button>
                 <Button
                   disabled={creatingBoard.isPending}
                   onClick={creatingBoard.createBoard}
                 >
-                  <PlusIcon/>
+                  <PlusIcon />
                   Создать доску
                 </Button>
               </div>
@@ -71,18 +73,20 @@ function BoardsListPage() {
             sort={
               <Select
                 value={boardsFilters.sort}
-                onValueChange={(value) => boardsFilters.setSort(value as BoardSortOptions)}
+                onValueChange={(value) =>
+                  boardsFilters.setSort(value as BoardSortOptions)
+                }
               >
-              <SelectTrigger id="sort" className="w-full">
-                <SelectValue placeholder="Сортировка" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="lastOpenedAt">По дате открытия</SelectItem>
-                <SelectItem value="createdAt">По дате создания</SelectItem>
-                <SelectItem value="updatedAt">По дате обновления</SelectItem>
-                <SelectItem value="name">По имени</SelectItem>
-              </SelectContent>
-            </Select>
+                <SelectTrigger id="sort" className="w-full">
+                  <SelectValue placeholder="Сортировка" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="lastOpenedAt">По дате открытия</SelectItem>
+                  <SelectItem value="createdAt">По дате создания</SelectItem>
+                  <SelectItem value="updatedAt">По дате обновления</SelectItem>
+                  <SelectItem value="name">По имени</SelectItem>
+                </SelectContent>
+              </Select>
             }
             filters={
               <Input
@@ -94,7 +98,10 @@ function BoardsListPage() {
               />
             }
             actions={
-              <ViewModeToggle onChange={value => setViewMode(value)} value={viewMode} />
+              <ViewModeToggle
+                onChange={(value) => setViewMode(value)}
+                value={viewMode}
+              />
             }
           />
         }
@@ -119,8 +126,7 @@ function BoardsListPage() {
         />
       </BoardsListLayout>
     </>
-  )
-
+  );
 }
 
 export const Component = BoardsListPage;

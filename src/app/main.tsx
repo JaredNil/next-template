@@ -6,7 +6,6 @@ import { router } from "./router";
 import "./index.css";
 
 export async function enableMocking() {
-
   const { worker } = await import("@/shared/openapi/mocks/browser");
   return worker.start();
 }
@@ -15,6 +14,6 @@ enableMocking().then(() => {
   createRoot(document.getElementById("root")!).render(
     <StrictMode>
       <RouterProvider router={router} />
-    </StrictMode>
+    </StrictMode>,
   );
 });

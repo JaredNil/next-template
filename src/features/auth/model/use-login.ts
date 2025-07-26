@@ -8,10 +8,10 @@ import { useSession } from "@/shared/session/session";
 export function useLogin() {
   const navigate = useNavigate();
 
-  const session = useSession()
+  const session = useSession();
   const loginMutation = publicRqClient.useMutation("post", "/auth/login", {
     onSuccess(data) {
-      session.login(data.accessToken)
+      session.login(data.accessToken);
       navigate(ROUTES.HOME);
     },
   });

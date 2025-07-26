@@ -1,9 +1,86 @@
-import { useParams } from "react-router-dom";
+import { ArrowRightIcon, StickerIcon } from "lucide-react";
+
+import { useCanvasRect } from "./hooks/use-canvas-rect";
+import { useLayoutFocus } from "./hooks/use-layout-focus";
+import { useNodesDimensions } from "./hooks/use-nodes-dimensions";
+import { useWindowEvents } from "./hooks/use-window-events";
+import { useNodes } from "./model/nodes";
+import { useWindowPositionModel } from "./model/window-position";
+import { ActionButton } from "./ui/action-button";
+import { Actions } from "./ui/actions";
+import { Canvas } from "./ui/canvas";
+import { Dots } from "./ui/dots";
+import { Layout } from "./ui/layout";
+import { Arrow } from "./ui/nodes/arrow";
+import { Sticker } from "./ui/nodes/sticker";
+import { Overlay } from "./ui/overlay";
+import { SelectionWindow } from "./ui/selection-window";
+import { useViewModel } from "./view-model/use-view-model";
 
 function BoardPage() {
-  const params = useParams();
+  const nodesModel = useNodes();
+  const windowPositionModel = useWindowPositionModel();
+  const focusLayoutRef = useLayoutFocus();
+  const { canvasRef, canvasRect } = useCanvasRect();
+  const { nodeRef, nodesDimensions } = useNodesDimensions();
 
-  return <div>Board page {params.boardId}</div>;
+  const viewModel = useViewModel({
+    nodesModel,
+    canvasRect,
+    nodesDimensions,
+    windowPositionModel,
+  });
+
+  useWindowEvents(viewModel);
+
+  const windowPosition =
+    viewModel.windowPosition ?? windowPositionModel.position;
+
+  return (
+    <Layout ref={focusLayoutRef} onKeyDown={viewModel.layout?.onKeyDown}>
+      <Dots windowPosition={windowPosition} />
+
+      <Canvas
+        ref={canvasRef}
+        overlay={
+          <Overlay
+            onClick={viewModel.overlay?.onClick}
+            onMouseDown={viewModel.overlay?.onMouseDown}
+            onMouseUp={viewModel.overlay?.onMouseUp}
+          />
+        }
+        onClick={viewModel.canvas?.onClick}
+        windowPosition={windowPosition}
+      >
+        {viewModel.nodes.map((node) => {
+          if (node.type === "sticker") {
+            return <Sticker key={node.id} {...node} ref={nodeRef} />;
+          }
+          if (node.type === "arrow") {
+            return <Arrow key={node.id} {...node} ref={nodeRef} />;
+          }
+        })}
+        {viewModel.selectionWindow && (
+          <SelectionWindow {...viewModel.selectionWindow} />
+        )}
+      </Canvas>
+
+      <Actions>
+        <ActionButton
+          isActive={viewModel.actions?.addSticker?.isActive}
+          onClick={viewModel.actions?.addSticker?.onClick}
+        >
+          <StickerIcon />
+        </ActionButton>
+        <ActionButton
+          isActive={viewModel.actions?.addArrow?.isActive}
+          onClick={viewModel.actions?.addArrow?.onClick}
+        >
+          <ArrowRightIcon />
+        </ActionButton>
+      </Actions>
+    </Layout>
+  );
 }
 
 export const Component = BoardPage;

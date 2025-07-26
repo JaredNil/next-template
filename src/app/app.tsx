@@ -4,10 +4,9 @@ import { Providers } from "./providers";
 import { AppHeader } from "@/features/header";
 
 export function App() {
-
   return (
     <Providers>
-      <div>
+      <div className="flex flex-col h-[100vh] w-[100vw]">
         <AppHeader />
         <Outlet />
       </div>
