@@ -3,14 +3,14 @@ import {
   isRelativePoint,
   type Point,
   diffPoints,
-} from "../../model/point";
-import { pointOnScreenToCanvas } from "../../model/screenToCanvas";
-import type { ViewModelParams } from "../viewModelParams";
-import type { ViewModel } from "../viewModelType";
-import { goToIdle } from "./idle";
+} from '../../model/point';
+import { pointOnScreenToCanvas } from '../../model/screenToCanvas';
+import type { ViewModelParams } from '../viewModelParams';
+import type { ViewModel } from '../viewModelType';
+import { goToIdle } from './idle';
 
 export type NodesDraggingViewState = {
-  type: "nodes-dragging";
+  type: 'nodes-dragging';
   startPoint: Point;
   endPoint: Point;
   nodesToMove: Set<string>;
@@ -27,7 +27,7 @@ export function useNodesDraggingViewModel({
       if (state.nodesToMove.has(node.id)) {
         const diff = diffPoints(state.startPoint, state.endPoint);
 
-        if (node.type === "arrow") {
+        if (node.type === 'arrow') {
           return {
             ...node,
             start: isRelativePoint(node.start)
@@ -64,7 +64,7 @@ export function useNodesDraggingViewModel({
               y: e.clientY,
             },
             windowPositionModel.position,
-            canvasRect,
+            canvasRect
           );
           setViewState({
             ...state,
@@ -75,17 +75,17 @@ export function useNodesDraggingViewModel({
           const nodesToMove = nodes
             .filter((node) => state.nodesToMove.has(node.id))
             .flatMap((node) => {
-              if (node.type === "arrow") {
+              if (node.type === 'arrow') {
                 return [
                   {
                     id: node.id,
                     point: node.start,
-                    type: "start" as const,
+                    type: 'start' as const,
                   },
                   {
                     id: node.id,
                     point: node.end,
-                    type: "end" as const,
+                    type: 'end' as const,
                   },
                 ];
               }
@@ -106,7 +106,7 @@ export function useNodesDraggingViewModel({
           setViewState(
             goToIdle({
               selectedIds: state.nodesToMove,
-            }),
+            })
           );
         },
       },
@@ -124,7 +124,7 @@ export function goToNodesDragging({
   nodesToMove: Set<string>;
 }): NodesDraggingViewState {
   return {
-    type: "nodes-dragging",
+    type: 'nodes-dragging',
     startPoint,
     endPoint,
     nodesToMove,

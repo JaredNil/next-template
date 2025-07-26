@@ -1,8 +1,8 @@
-import type { IdleViewState } from ".";
-import type { ViewModelParams } from "../../viewModelParams";
-import { goToSelectionWindow } from "../selectionWindow";
-import { distanceFromPoints } from "@/features/board/model/point";
-import { pointOnScreenToCanvas } from "@/features/board/model/screenToCanvas";
+import type { IdleViewState } from '.';
+import type { ViewModelParams } from '../../viewModelParams';
+import { goToSelectionWindow } from '../selectionWindow';
+import { distanceFromPoints } from '@/features/board/model/point';
+import { pointOnScreenToCanvas } from '@/features/board/model/screenToCanvas';
 
 export function useGoToSelectionWindow({
   setViewState,
@@ -12,7 +12,7 @@ export function useGoToSelectionWindow({
   const handleWindowMouseMove = (idleState: IdleViewState, e: MouseEvent) => {
     if (
       idleState.mouseDown &&
-      idleState.mouseDown.type === "overlay" &&
+      idleState.mouseDown.type === 'overlay' &&
       !idleState.mouseDown.isRightClick
     ) {
       const currentPoint = pointOnScreenToCanvas(
@@ -21,7 +21,7 @@ export function useGoToSelectionWindow({
           y: e.clientY,
         },
         windowPositionModel.position,
-        canvasRect,
+        canvasRect
       );
 
       if (distanceFromPoints(idleState.mouseDown, currentPoint) > 5) {
@@ -30,7 +30,7 @@ export function useGoToSelectionWindow({
             startPoint: idleState.mouseDown,
             endPoint: currentPoint,
             initialSelectedIds: e.shiftKey ? idleState.selectedIds : undefined,
-          }),
+          })
         );
       }
     }

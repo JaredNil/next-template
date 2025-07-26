@@ -8,7 +8,7 @@ export type Board = {
 };
 
 export type BoardSortOptions =
-  | "createdAt"
-  | "updatedAt"
-  | "lastOpenedAt"
-  | "name";
+  | 'createdAt'
+  | 'updatedAt'
+  | 'lastOpenedAt'
+  | 'name';

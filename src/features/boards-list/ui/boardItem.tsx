@@ -1,11 +1,11 @@
-import { BoardsFavoriteToggle } from "./boardsFavoriteToggle";
-import { BoardsListItem } from "./boardsListItem";
-import { useDeleteBoard } from "../hooks";
-import { useUpdateFavorite } from "../hooks";
-import type { ApiSchemas } from "@/shared/openapi/schema";
-import { DropdownMenuItem } from "@/shared/ui/kit/dropdown-menu";
+import { BoardsFavoriteToggle } from './boardsFavoriteToggle';
+import { BoardsListItem } from './boardsListItem';
+import { useDeleteBoard } from '../hooks';
+import { useUpdateFavorite } from '../hooks';
+import type { ApiSchemas } from '@/shared/openapi/schema';
+import { DropdownMenuItem } from '@/shared/ui/kit/dropdown-menu';
 
-export function BoardItem({ board }: { board: ApiSchemas["Board"] }) {
+export function BoardItem({ board }: { board: ApiSchemas['Board'] }) {
   const deleteBoard = useDeleteBoard();
   const updateFavorite = useUpdateFavorite();
 

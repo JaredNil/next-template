@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import type { IdleViewState } from ".";
-import type { ViewModelParams } from "../../viewModelParams";
+import type { IdleViewState } from '.';
+import type { ViewModelParams } from '../../viewModelParams';
 
 export function useDeleteSelected({
   nodesModel,
@@ -20,9 +20,9 @@ export function useDeleteSelected({
 
   const handleKeyDown = (
     viewState: IdleViewState,
-    e: React.KeyboardEvent<HTMLDivElement>,
+    e: React.KeyboardEvent<HTMLDivElement>
   ) => {
-    if (e.key === "Delete" || e.key === "Backspace") {
+    if (e.key === 'Delete' || e.key === 'Backspace') {
       deleteSelected(viewState);
     }
   };

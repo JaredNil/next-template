@@ -1,9 +1,9 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 
-import { useLogin } from "../hooks/useLogin";
-import { Button } from "@/shared/ui/kit/button";
+import { useLogin } from '../hooks/useLogin';
+import { Button } from '@/shared/ui/kit/button';
 import {
   FormField,
   FormItem,
@@ -11,20 +11,20 @@ import {
   FormControl,
   FormMessage,
   Form,
-} from "@/shared/ui/kit/form";
-import { Input } from "@/shared/ui/kit/input";
+} from '@/shared/ui/kit/form';
+import { Input } from '@/shared/ui/kit/input';
 
 const loginSchema = z.object({
   email: z
     .string({
-      error: "Email обязателен",
+      error: 'Email обязателен',
     })
-    .email("Неверный email"),
+    .email('Неверный email'),
   password: z
     .string({
-      error: "Пароль обязателен",
+      error: 'Пароль обязателен',
     })
-    .min(6, "Пароль должен быть не менее 6 символов"),
+    .min(6, 'Пароль должен быть не менее 6 символов'),
 });
 
 export function LoginForm() {

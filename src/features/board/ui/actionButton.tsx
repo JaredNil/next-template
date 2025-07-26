@@ -1,4 +1,4 @@
-import { Button } from "@/shared/ui/kit/button";
+import { Button } from '@/shared/ui/kit/button';
 
 export function ActionButton({
   children,
@@ -15,8 +15,8 @@ export function ActionButton({
       size="icon"
       className={
         isActive
-          ? "bg-blue-500/30 hover:bg-blue-600/30 text-blue-500 hover:text-blue-600"
-          : ""
+          ? 'bg-blue-500/30 hover:bg-blue-600/30 text-blue-500 hover:text-blue-600'
+          : ''
       }
       onClick={onClick}
     >

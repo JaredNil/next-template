@@ -1,25 +1,25 @@
-import { delay, HttpResponse } from "msw";
+import { delay, HttpResponse } from 'msw';
 
-import type { ApiSchemas } from "../../schema";
-import { http } from "../http";
+import type { ApiSchemas } from '../../schema';
+import { http } from '../http';
 import {
   createRefreshTokenCookie,
   generateTokens,
   verifyToken,
-} from "../session";
+} from '../session';
 
-const mockUsers: ApiSchemas["User"][] = [
+const mockUsers: ApiSchemas['User'][] = [
   {
-    id: "1",
-    email: "admin@gmail.com",
+    id: '1',
+    email: 'admin@gmail.com',
   },
 ];
 
 const userPasswords = new Map<string, string>();
-userPasswords.set("admin@gmail.com", "123456");
+userPasswords.set('admin@gmail.com', '123456');
 
 export const authHandlers = [
-  http.post("/auth/login", async ({ request }) => {
+  http.post('/auth/login', async ({ request }) => {
     const body = await request.json();
 
     const user = mockUsers.find((u) => u.email === body.email);
@@ -30,10 +30,10 @@ export const authHandlers = [
     if (!user || !storedPassword || storedPassword !== body.password) {
       return HttpResponse.json(
         {
-          message: "Неверный email или пароль",
-          code: "INVALID_CREDENTIALS",
+          message: 'Неверный email или пароль',
+          code: 'INVALID_CREDENTIALS',
         },
-        { status: 401 },
+        { status: 401 }
       );
     }
 
@@ -50,13 +50,13 @@ export const authHandlers = [
       {
         status: 200,
         headers: {
-          "Set-Cookie": createRefreshTokenCookie(refreshToken),
+          'Set-Cookie': createRefreshTokenCookie(refreshToken),
         },
-      },
+      }
     );
   }),
 
-  http.post("/auth/register", async ({ request }) => {
+  http.post('/auth/register', async ({ request }) => {
     const body = await request.json();
 
     await delay();
@@ -64,14 +64,14 @@ export const authHandlers = [
     if (mockUsers.some((u) => u.email === body.email)) {
       return HttpResponse.json(
         {
-          message: "Пользователь уже существует",
-          code: "USER_EXISTS",
+          message: 'Пользователь уже существует',
+          code: 'USER_EXISTS',
         },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
-    const newUser: ApiSchemas["User"] = {
+    const newUser: ApiSchemas['User'] = {
       id: String(mockUsers.length + 1),
       email: body.email,
     };
@@ -92,21 +92,21 @@ export const authHandlers = [
       {
         status: 201,
         headers: {
-          "Set-Cookie": createRefreshTokenCookie(refreshToken),
+          'Set-Cookie': createRefreshTokenCookie(refreshToken),
         },
-      },
+      }
     );
   }),
-  http.post("/auth/refresh", async ({ cookies }) => {
+  http.post('/auth/refresh', async ({ cookies }) => {
     const refreshToken = cookies.refreshToken;
 
     if (!refreshToken) {
       return HttpResponse.json(
         {
-          message: "Refresh token не найден",
-          code: "REFRESH_TOKEN_MISSING",
+          message: 'Refresh token не найден',
+          code: 'REFRESH_TOKEN_MISSING',
         },
-        { status: 401 },
+        { status: 401 }
       );
     }
 
@@ -115,7 +115,7 @@ export const authHandlers = [
       const user = mockUsers.find((u) => u.id === session.userId);
 
       if (!user) {
-        throw new Error("User not found");
+        throw new Error('User not found');
       }
 
       const { accessToken, refreshToken: newRefreshToken } =
@@ -132,18 +132,18 @@ export const authHandlers = [
         {
           status: 200,
           headers: {
-            "Set-Cookie": createRefreshTokenCookie(newRefreshToken),
+            'Set-Cookie': createRefreshTokenCookie(newRefreshToken),
           },
-        },
+        }
       );
     } catch (error) {
-      console.error("Error refreshing token:", error);
+      console.error('Error refreshing token:', error);
       return HttpResponse.json(
         {
-          message: "Недействительный refresh token",
-          code: "INVALID_REFRESH_TOKEN",
+          message: 'Недействительный refresh token',
+          code: 'INVALID_REFRESH_TOKEN',
         },
-        { status: 401 },
+        { status: 401 }
       );
     }
   }),

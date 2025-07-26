@@ -1,4 +1,4 @@
-import type { WindowPosition } from "../domain/windowPosition";
+import type { WindowPosition } from '../domain/windowPosition';
 
 export function pointOnScreenToCanvas(
   point: { x: number; y: number },
@@ -6,7 +6,7 @@ export function pointOnScreenToCanvas(
   canvasRect?: {
     x: number;
     y: number;
-  },
+  }
 ) {
   if (!canvasRect) return point;
   return {

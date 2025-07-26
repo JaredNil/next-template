@@ -1,13 +1,13 @@
-import { MoreHorizontalIcon } from "lucide-react";
-import { Link, href } from "react-router-dom";
+import { MoreHorizontalIcon } from 'lucide-react';
+import { Link, href } from 'react-router-dom';
 
-import { ROUTES } from "@/shared/routes/routes";
-import { Button } from "@/shared/ui/kit/button";
+import { ROUTES } from '@/shared/routes/routes';
+import { Button } from '@/shared/ui/kit/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "@/shared/ui/kit/dropdown-menu";
+} from '@/shared/ui/kit/dropdown-menu';
 
 interface BoardsListItemProps {
   board: {
@@ -42,7 +42,7 @@ export function BoardsListItem({
         <div className="flex gap-4 text-sm text-gray-500 mt-1">
           <div>Создано: {new Date(board.createdAt).toLocaleDateString()}</div>
           <div>
-            Последнее открытие:{" "}
+            Последнее открытие:{' '}
             {new Date(board.lastOpenedAt).toLocaleDateString()}
           </div>
         </div>

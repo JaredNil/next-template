@@ -1,7 +1,7 @@
-import clsx from "clsx";
-import {type Ref } from "react";
+import clsx from 'clsx';
+import { type Ref } from 'react';
 
-import {type Point, diffPoints } from "../../model/point";
+import { type Point, diffPoints } from '../../model/point';
 
 export function Arrow({
   start,
@@ -39,8 +39,8 @@ export function Arrow({
     <svg className="absolute left-0 top-0 pointer-events-none overflow-visible">
       <path
         className={clsx(
-          noPointerEvents ? "pointer-events-none" : "pointer-events-auto",
-          isSelected && "stroke-blue-500 stroke-2 fill-blue-500",
+          noPointerEvents ? 'pointer-events-none' : 'pointer-events-auto',
+          isSelected && 'stroke-blue-500 stroke-2 fill-blue-500'
         )}
         stroke="black"
         ref={ref}

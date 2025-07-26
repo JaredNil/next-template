@@ -1,7 +1,7 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 
-import type { ViewMode } from "./viewModeToggle";
-import { Skeleton } from "@/shared/ui/kit/skeleton";
+import type { ViewMode } from './viewModeToggle';
+import { Skeleton } from '@/shared/ui/kit/skeleton';
 
 export function BoardsListLayout({
   children,
@@ -105,10 +105,10 @@ export function BoardsListLayoutContent({
   return (
     <div>
       {isPending && <div className="text-center py-10">Загрузка...</div>}
-      {mode === "list" && renderList && (
+      {mode === 'list' && renderList && (
         <BoardsListLayoutList>{renderList?.()}</BoardsListLayoutList>
       )}
-      {mode === "cards" && renderGrid && (
+      {mode === 'cards' && renderGrid && (
         <BoardsListLayoutCards>{renderGrid?.()}</BoardsListLayoutCards>
       )}
       {!isPending && children}

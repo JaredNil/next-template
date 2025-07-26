@@ -1,11 +1,11 @@
-import { type Point, diffPoints } from "../../model/point";
-import { pointOnScreenToCanvas } from "../../model/screenToCanvas";
-import  type { ViewModelParams } from "../viewModelParams";
-import type { ViewModel } from "../viewModelType";
-import { goToIdle } from "./idle";
+import { type Point, diffPoints } from '../../model/point';
+import { pointOnScreenToCanvas } from '../../model/screenToCanvas';
+import type { ViewModelParams } from '../viewModelParams';
+import type { ViewModel } from '../viewModelType';
+import { goToIdle } from './idle';
 
 export type WindowDraggingViewState = {
-  type: "window-dragging";
+  type: 'window-dragging';
   startPoint: Point;
   endPoint: Point;
 };
@@ -33,7 +33,7 @@ export function useWindowDraggingViewModel({
               y: e.clientY,
             },
             windowPositionModel.position,
-            canvasRect,
+            canvasRect
           );
           setViewState({
             ...state,
@@ -61,7 +61,7 @@ export function goToWindowDragging({
   endPoint: { x: number; y: number };
 }): WindowDraggingViewState {
   return {
-    type: "window-dragging",
+    type: 'window-dragging',
     startPoint,
     endPoint,
   };

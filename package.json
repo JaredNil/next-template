@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint --config config/eslint/eslint.config.js --fix . && prettier --config config/.prettierrc.json --write --log-level warn .",
     "preview": "vite preview",
     "api": "npx openapi-typescript ./src/shared/openapi/schema/main.yaml -o ./src/shared/openapi/schema/generated.ts"
   },

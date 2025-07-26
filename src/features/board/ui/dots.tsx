@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 
-import type { WindowPosition } from "../model/windowPosition";
+import type { WindowPosition } from '../model/windowPosition';
 
 export function Dots({ windowPosition }: { windowPosition: WindowPosition }) {
   return (
     <div
       style={
         {
-          "--zoom": windowPosition.zoom,
-          "--x": -windowPosition.x * windowPosition.zoom + "px",
-          "--y": -windowPosition.y * windowPosition.zoom + "px",
+          '--zoom': windowPosition.zoom,
+          '--x': -windowPosition.x * windowPosition.zoom + 'px',
+          '--y': -windowPosition.y * windowPosition.zoom + 'px',
         } as React.CSSProperties
       }
       className="

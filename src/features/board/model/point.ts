@@ -43,5 +43,5 @@ export function resolveRelativePoint(base: RelativeBase, point: Point): Point {
 }
 
 export function isRelativePoint(point: Point): point is RelativePoint {
-  return "relativeTo" in point;
+  return 'relativeTo' in point;
 }

@@ -1,8 +1,8 @@
-import { keepPreviousData } from "@tanstack/react-query";
-import { useCallback, type RefCallback } from "react";
+import { keepPreviousData } from '@tanstack/react-query';
+import { useCallback, type RefCallback } from 'react';
 
-import { rqClient } from "@/shared/openapi/instance";
-import type { BoardSortOptions } from "@/features/boards-list/model";
+import type { BoardSortOptions } from '@/features/boards-list/model';
+import { rqClient } from '@/shared/openapi/instance';
 
 type useBoardsListParams = {
   limit?: number;
@@ -19,8 +19,8 @@ export function useBoardsList({
 }: useBoardsListParams) {
   const { fetchNextPage, data, isFetchingNextPage, isPending, hasNextPage } =
     rqClient.useInfiniteQuery(
-      "get",
-      "/boards",
+      'get',
+      '/boards',
       {
         params: {
           query: {
@@ -34,18 +34,18 @@ export function useBoardsList({
       },
       {
         initialPageParam: 1,
-        pageParamName: "page",
+        pageParamName: 'page',
         getNextPageParam: (
           lastPage: { totalPages: number },
           _: number,
-          lastPageParams: number,
+          lastPageParams: number
         ) =>
           Number(lastPageParams) < lastPage.totalPages
             ? Number(lastPageParams) + 1
             : null,
 
         placeholder: keepPreviousData,
-      },
+      }
     );
 
   const cursorRef: RefCallback<HTMLDivElement> = useCallback(
@@ -60,7 +60,7 @@ export function useBoardsList({
             fetchNextPage();
           }
         },
-        { threshold: 0.5 },
+        { threshold: 0.5 }
       );
 
       observer.observe(el);
@@ -69,7 +69,7 @@ export function useBoardsList({
         observer.disconnect();
       };
     },
-    [fetchNextPage],
+    [fetchNextPage]
   );
 
   const boards = data?.pages.flatMap((page) => page.list) ?? [];

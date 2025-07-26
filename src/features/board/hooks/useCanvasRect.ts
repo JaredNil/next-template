@@ -1,5 +1,5 @@
-import { useCallback, useState } from "react";
-import type { RefCallback } from "react";
+import { useCallback, useState } from 'react';
+import type { RefCallback } from 'react';
 
 export type CanvasRect = {
   x: number;

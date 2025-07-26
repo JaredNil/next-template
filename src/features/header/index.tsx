@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import { ROUTES } from "@/shared/routes/routes";
-import { useSession } from "@/shared/session/session";
-import { Button } from "@/shared/ui/kit/button";
+import { ROUTES } from '@/shared/routes/routes';
+import { useSession } from '@/shared/session/session';
+import { Button } from '@/shared/ui/kit/button';
 
 export function AppHeader() {
   const { session, logout } = useSession();

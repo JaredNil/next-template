@@ -1,20 +1,20 @@
-export type SelectionModifier = "replace" | "add" | "toggle";
+export type SelectionModifier = 'replace' | 'add' | 'toggle';
 export type Selection = Set<string>;
 
 export function selectItems(
   initialSelected: Selection,
   ids: string[],
-  modif: SelectionModifier,
+  modif: SelectionModifier
 ): Selection {
-  if (modif === "replace") {
+  if (modif === 'replace') {
     return new Set(ids);
   }
 
-  if (modif === "add") {
+  if (modif === 'add') {
     return new Set([...initialSelected, ...ids]);
   }
 
-  if (modif === "toggle") {
+  if (modif === 'toggle') {
     const currentIds = new Set(initialSelected);
     const newIds = new Set(ids);
 

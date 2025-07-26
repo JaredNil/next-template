@@ -1,6 +1,6 @@
-import type { IdleViewState } from ".";
-import  type{ ViewModelParams } from "../../viewModelParams";
-import { goToEditSticker } from "../editSticker";
+import type { IdleViewState } from '.';
+import type { ViewModelParams } from '../../viewModelParams';
+import { goToEditSticker } from '../editSticker';
 
 export function useGoToEditSticker(params: ViewModelParams) {
   const { setViewState } = params;
@@ -8,7 +8,7 @@ export function useGoToEditSticker(params: ViewModelParams) {
   const handleNodeClick = (
     idleState: IdleViewState,
     nodeId: string,
-    e: React.MouseEvent,
+    e: React.MouseEvent
   ) => {
     if (
       idleState.selectedIds.size === 1 &&

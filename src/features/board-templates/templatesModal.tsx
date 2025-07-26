@@ -1,12 +1,12 @@
-import { TemplatesGallery } from "./templatesGallery";
-import { useTemplatesModal } from "./useTemplatesModal";
+import { TemplatesGallery } from './templatesGallery';
+import { useTemplatesModal } from './useTemplatesModal';
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/shared/ui/kit/dialog";
+} from '@/shared/ui/kit/dialog';
 
 export function TemplatesModal() {
   const { isOpen, close } = useTemplatesModal();

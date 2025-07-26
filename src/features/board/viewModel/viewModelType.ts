@@ -1,10 +1,10 @@
-import type { Point } from "../model/point";
-import type { Rect } from "../model/rect";
-import type { WindowPosition } from "../model/windowPosition";
+import type { Point } from '../model/point';
+import type { Rect } from '../model/rect';
+import type { WindowPosition } from '../model/windowPosition';
 
 type ViewModelStickerNode = {
   id: string;
-  type: "sticker";
+  type: 'sticker';
   text: string;
   x: number;
   y: number;
@@ -18,7 +18,7 @@ type ViewModelStickerNode = {
 
 type ViewModelArrowNode = {
   id: string;
-  type: "arrow";
+  type: 'arrow';
   start: Point;
   end: Point;
   isSelected?: boolean;

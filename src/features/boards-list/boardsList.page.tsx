@@ -1,33 +1,33 @@
-import { PlusIcon } from "lucide-react";
-import { useState } from "react";
+import { PlusIcon } from 'lucide-react';
+import { useState } from 'react';
 
-import { useBoardFilters, useBoardsList, useCreateBoard } from "./hooks";
+import { useBoardFilters, useBoardsList, useCreateBoard } from './hooks';
 import {
   TemplatesGallery,
   TemplatesModal,
   useTemplatesModal,
-} from "../board-templates";
-import { BoardCard } from "./ui/boardCard";
-import { BoardItem } from "./ui/boardItem";
-import { BoardsSidebar } from "./ui/boardSidebar";
+} from '../board-templates';
+import { BoardCard } from './ui/boardCard';
+import { BoardItem } from './ui/boardItem';
+import { BoardsSidebar } from './ui/boardSidebar';
 import {
   BoardsListLayout,
   BoardsListLayoutContent,
   BoardsListLayoutFilters,
   BoardsListLayoutHeader,
-} from "./ui/boardsListLayout";
-import { ViewModeToggle, type ViewMode } from "./ui/viewModeToggle";
-import { useDebouncedValue } from "@/shared/hooks";
-import type { BoardSortOptions } from "@/features/boards-list/model";
-import { Button } from "@/shared/ui/kit/button";
-import { Input } from "@/shared/ui/kit/input";
+} from './ui/boardsListLayout';
+import { ViewModeToggle, type ViewMode } from './ui/viewModeToggle';
+import type { BoardSortOptions } from '@/features/boards-list/model';
+import { useDebouncedValue } from '@/shared/hooks';
+import { Button } from '@/shared/ui/kit/button';
+import { Input } from '@/shared/ui/kit/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/shared/ui/kit/select";
+} from '@/shared/ui/kit/select';
 
 function BoardsListPage() {
   const boardsFilters = useBoardFilters();
@@ -38,7 +38,7 @@ function BoardsListPage() {
 
   const creatingBoard = useCreateBoard();
 
-  const [viewMode, setViewMode] = useState("cards" as ViewMode);
+  const [viewMode, setViewMode] = useState('cards' as ViewMode);
 
   const templatesModal = useTemplatesModal();
 

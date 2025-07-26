@@ -1,8 +1,8 @@
-import { ImagesIcon, ListIcon } from "lucide-react";
+import { ImagesIcon, ListIcon } from 'lucide-react';
 
-import { Tabs, TabsList, TabsTrigger } from "@/shared/ui/kit/tabs";
+import { Tabs, TabsList, TabsTrigger } from '@/shared/ui/kit/tabs';
 
-export type ViewMode = "list" | "cards";
+export type ViewMode = 'list' | 'cards';
 export function ViewModeToggle({
   value,
   onChange,

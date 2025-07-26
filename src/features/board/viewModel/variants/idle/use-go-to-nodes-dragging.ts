@@ -1,8 +1,8 @@
-import type { IdleViewState } from ".";
-import type { ViewModelParams } from "../../viewModelParams";
-import { goToNodesDragging } from "../nodesDragging";
-import { distanceFromPoints } from "@/features/board/model/point";
-import { pointOnScreenToCanvas } from "@/features/board/model/screenToCanvas";
+import type { IdleViewState } from '.';
+import type { ViewModelParams } from '../../viewModelParams';
+import { goToNodesDragging } from '../nodesDragging';
+import { distanceFromPoints } from '@/features/board/model/point';
+import { pointOnScreenToCanvas } from '@/features/board/model/screenToCanvas';
 
 export function useGoToNodesDragging({
   canvasRect,
@@ -12,7 +12,7 @@ export function useGoToNodesDragging({
   const handleWindowMouseMove = (idleState: IdleViewState, e: MouseEvent) => {
     if (
       idleState.mouseDown &&
-      idleState.mouseDown.type === "node" &&
+      idleState.mouseDown.type === 'node' &&
       !idleState.mouseDown.isRightClick
     ) {
       const currentPoint = pointOnScreenToCanvas(
@@ -21,7 +21,7 @@ export function useGoToNodesDragging({
           y: e.clientY,
         },
         windowPositionModel.position,
-        canvasRect,
+        canvasRect
       );
 
       if (distanceFromPoints(idleState.mouseDown, currentPoint) > 5) {
@@ -33,7 +33,7 @@ export function useGoToNodesDragging({
               ...idleState.selectedIds,
               idleState.mouseDown.nodeId,
             ]),
-          }),
+          })
         );
       }
     }

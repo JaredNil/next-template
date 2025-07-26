@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-  "/auth/login": {
+  '/auth/login': {
     parameters: {
       query?: never;
       header?: never;
@@ -23,7 +23,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": components["schemas"]["LoginRequest"];
+          'application/json': components['schemas']['LoginRequest'];
         };
       };
       responses: {
@@ -33,10 +33,10 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": components["schemas"]["AuthResponse"];
+            'application/json': components['schemas']['AuthResponse'];
           };
         };
-        401: components["responses"]["UnauthorizedError"];
+        401: components['responses']['UnauthorizedError'];
       };
     };
     delete?: never;
@@ -45,7 +45,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/register": {
+  '/auth/register': {
     parameters: {
       query?: never;
       header?: never;
@@ -64,7 +64,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": components["schemas"]["RegisterRequest"];
+          'application/json': components['schemas']['RegisterRequest'];
         };
       };
       responses: {
@@ -74,10 +74,10 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": components["schemas"]["AuthResponse"];
+            'application/json': components['schemas']['AuthResponse'];
           };
         };
-        400: components["responses"]["BadRequestError"];
+        400: components['responses']['BadRequestError'];
       };
     };
     delete?: never;
@@ -86,7 +86,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/auth/refresh": {
+  '/auth/refresh': {
     parameters: {
       query?: never;
       header?: never;
@@ -113,10 +113,10 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": components["schemas"]["AuthResponse"];
+            'application/json': components['schemas']['AuthResponse'];
           };
         };
-        401: components["responses"]["UnauthorizedError"];
+        401: components['responses']['UnauthorizedError'];
       };
     };
     delete?: never;
@@ -125,7 +125,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/boards": {
+  '/boards': {
     parameters: {
       query?: never;
       header?: never;
@@ -138,7 +138,7 @@ export interface paths {
         query?: {
           page?: number;
           limit?: number;
-          sort?: "createdAt" | "updatedAt" | "lastOpenedAt" | "name";
+          sort?: 'createdAt' | 'updatedAt' | 'lastOpenedAt' | 'name';
           isFavorite?: boolean;
           search?: string;
         };
@@ -154,10 +154,10 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": components["schemas"]["BoardsList"];
+            'application/json': components['schemas']['BoardsList'];
           };
         };
-        401: components["responses"]["UnauthorizedError"];
+        401: components['responses']['UnauthorizedError'];
       };
     };
     put?: never;
@@ -177,10 +177,10 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": components["schemas"]["Board"];
+            'application/json': components['schemas']['Board'];
           };
         };
-        401: components["responses"]["UnauthorizedError"];
+        401: components['responses']['UnauthorizedError'];
       };
     };
     delete?: never;
@@ -189,7 +189,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/boards/{boardId}": {
+  '/boards/{boardId}': {
     parameters: {
       query?: never;
       header?: never;
@@ -214,11 +214,11 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": components["schemas"]["Board"];
+            'application/json': components['schemas']['Board'];
           };
         };
-        401: components["responses"]["UnauthorizedError"];
-        404: components["responses"]["NotFoundError"];
+        401: components['responses']['UnauthorizedError'];
+        404: components['responses']['NotFoundError'];
       };
     };
     put?: never;
@@ -242,8 +242,8 @@ export interface paths {
           };
           content?: never;
         };
-        401: components["responses"]["UnauthorizedError"];
-        404: components["responses"]["NotFoundError"];
+        401: components['responses']['UnauthorizedError'];
+        404: components['responses']['NotFoundError'];
       };
     };
     options?: never;
@@ -251,7 +251,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/boards/{boardId}/favorite": {
+  '/boards/{boardId}/favorite': {
     parameters: {
       query?: never;
       header?: never;
@@ -271,7 +271,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": components["schemas"]["UpdateBoardFavorite"];
+          'application/json': components['schemas']['UpdateBoardFavorite'];
         };
       };
       responses: {
@@ -281,10 +281,10 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": components["schemas"]["Board"];
+            'application/json': components['schemas']['Board'];
           };
         };
-        401: components["responses"]["UnauthorizedError"];
+        401: components['responses']['UnauthorizedError'];
       };
     };
     post?: never;
@@ -294,7 +294,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/boards/{boardId}/rename": {
+  '/boards/{boardId}/rename': {
     parameters: {
       query?: never;
       header?: never;
@@ -314,7 +314,7 @@ export interface paths {
       };
       requestBody: {
         content: {
-          "application/json": components["schemas"]["RenameBoard"];
+          'application/json': components['schemas']['RenameBoard'];
         };
       };
       responses: {
@@ -324,10 +324,10 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            "application/json": components["schemas"]["Board"];
+            'application/json': components['schemas']['Board'];
           };
         };
-        401: components["responses"]["UnauthorizedError"];
+        401: components['responses']['UnauthorizedError'];
       };
     };
     post?: never;
@@ -354,7 +354,7 @@ export interface components {
     };
     AuthResponse: {
       accessToken: string;
-      user: components["schemas"]["User"];
+      user: components['schemas']['User'];
     };
     Error: {
       message: string;
@@ -378,7 +378,7 @@ export interface components {
       isFavorite: boolean;
     };
     BoardsList: {
-      list: components["schemas"]["Board"][];
+      list: components['schemas']['Board'][];
       total: number;
       totalPages: number;
     };
@@ -396,7 +396,7 @@ export interface components {
         [name: string]: unknown;
       };
       content: {
-        "application/json": components["schemas"]["Error"];
+        'application/json': components['schemas']['Error'];
       };
     };
     /** @description Bad request */
@@ -405,7 +405,7 @@ export interface components {
         [name: string]: unknown;
       };
       content: {
-        "application/json": components["schemas"]["Error"];
+        'application/json': components['schemas']['Error'];
       };
     };
     /** @description Resource not found */
@@ -414,7 +414,7 @@ export interface components {
         [name: string]: unknown;
       };
       content: {
-        "application/json": components["schemas"]["Error"];
+        'application/json': components['schemas']['Error'];
       };
     };
   };

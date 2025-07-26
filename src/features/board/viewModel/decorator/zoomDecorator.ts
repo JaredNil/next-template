@@ -1,7 +1,7 @@
-import { diffPoints } from "../../model/point";
-import { pointOnScreenToCanvas } from "../../model/screenToCanvas";
-import type { ViewModelParams } from "../viewModelParams";
-import type  { ViewModel } from "../viewModelType";
+import { diffPoints } from '../../model/point';
+import { pointOnScreenToCanvas } from '../../model/screenToCanvas';
+import type { ViewModelParams } from '../viewModelParams';
+import type { ViewModel } from '../viewModelType';
 
 export function useZoomDecorator({
   windowPositionModel,
@@ -23,7 +23,7 @@ export function useZoomDecorator({
               y: e.clientY,
             },
             windowPositionModel.position,
-            canvasRect,
+            canvasRect
           );
 
           const newZoom = windowPositionModel.position.zoom * delta;
@@ -36,7 +36,7 @@ export function useZoomDecorator({
               ...windowPositionModel.position,
               zoom: newZoom,
             },
-            canvasRect,
+            canvasRect
           );
 
           const mouseDiff = diffPoints(currentPoint, newPoint);

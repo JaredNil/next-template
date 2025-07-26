@@ -1,19 +1,19 @@
-import { type Point, resolveRelativePoint } from "../../model/point";
+import { type Point, resolveRelativePoint } from '../../model/point';
 import {
   createRectFromDimensions,
   createRectFromPoints,
   isRectsIntersecting,
   type Rect,
-} from "../../model/rect";
-import { pointOnScreenToCanvas } from "../../model/screenToCanvas";
-import { selectItems } from "../../model/selection";
-import { createRelativeBase } from "../decorator/resolveRelative";
-import type { ViewModelParams } from "../viewModelParams";
-import type { ViewModel } from "../viewModelType";
-import { goToIdle } from "./idle";
+} from '../../model/rect';
+import { pointOnScreenToCanvas } from '../../model/screenToCanvas';
+import { selectItems } from '../../model/selection';
+import { createRelativeBase } from '../decorator/resolveRelative';
+import type { ViewModelParams } from '../viewModelParams';
+import type { ViewModel } from '../viewModelType';
+import { goToIdle } from './idle';
 
 export type SelectionWindowViewState = {
-  type: "selection-window";
+  type: 'selection-window';
   startPoint: Point;
   endPoint: Point;
   initialSelectedIds: Set<string>;
@@ -32,11 +32,11 @@ export function useSelectionWindowViewModel({
     return nodesModel.nodes.map((node) => {
       const nodeDimensions = nodesDimensions[node.id];
       const nodeRect =
-        node.type === "sticker"
+        node.type === 'sticker'
           ? createRectFromDimensions(node, nodeDimensions)
           : createRectFromPoints(
               resolveRelativePoint(relativeBase, node.start),
-              resolveRelativePoint(relativeBase, node.end),
+              resolveRelativePoint(relativeBase, node.end)
             );
 
       return {
@@ -63,7 +63,7 @@ export function useSelectionWindowViewModel({
               y: e.clientY,
             },
             windowPositionModel.position,
-            canvasRect,
+            canvasRect
           );
           setViewState({
             ...state,
@@ -80,9 +80,9 @@ export function useSelectionWindowViewModel({
               selectedIds: selectItems(
                 state.initialSelectedIds,
                 nodesIdsInRect,
-                "add",
+                'add'
               ),
-            }),
+            })
           );
         },
       },
@@ -100,7 +100,7 @@ export function goToSelectionWindow({
   initialSelectedIds?: Set<string>;
 }): SelectionWindowViewState {
   return {
-    type: "selection-window",
+    type: 'selection-window',
     startPoint,
     endPoint,
     initialSelectedIds: initialSelectedIds ?? new Set(),

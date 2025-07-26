@@ -1,8 +1,8 @@
-import { createGStore } from "create-gstore";
-import { jwtDecode } from "jwt-decode";
-import { useMemo, useState } from "react";
+import { createGStore } from 'create-gstore';
+import { jwtDecode } from 'jwt-decode';
+import { useMemo, useState } from 'react';
 
-import { fetchClient } from "@/shared/openapi/instance";
+import { fetchClient } from '@/shared/openapi/instance';
 
 export type Session = {
   userId: string;
@@ -14,15 +14,15 @@ let refreshTokenPromise: Promise<{ data?: { accessToken: string } }> | null =
   null;
 
 export const useSession = createGStore(() => {
-  const [token, setToken] = useState(() => localStorage.getItem("token"));
+  const [token, setToken] = useState(() => localStorage.getItem('token'));
 
   const updateToken = (token: string) => {
-    localStorage.setItem("token", token);
+    localStorage.setItem('token', token);
     setToken(token);
   };
 
   const removeToken = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
     setToken(null);
   };
 
@@ -36,7 +36,7 @@ export const useSession = createGStore(() => {
     if (res.exp < Date.now() / 1000) {
       if (!refreshTokenPromise) {
         refreshTokenPromise = fetchClient
-          .POST("/auth/refresh", {})
+          .POST('/auth/refresh', {})
           .finally(() => {
             refreshTokenPromise = null;
           });
@@ -57,7 +57,7 @@ export const useSession = createGStore(() => {
 
   const session = useMemo(
     () => (!token ? null : jwtDecode<Session>(token)),
-    [token],
+    [token]
   );
 
   return {

@@ -1,4 +1,4 @@
-import type { Point } from "./point";
+import type { Point } from './point';
 
 export type Rect = {
   x: number;
@@ -9,7 +9,7 @@ export type Rect = {
 
 export function createRectFromDimensions(
   start: Point,
-  dimensions: { width: number; height: number },
+  dimensions: { width: number; height: number }
 ): Rect {
   return {
     x: start.x,

@@ -1,29 +1,28 @@
-import React from "react";
+import React from 'react';
 
-import { useDeleteSelected } from "./use-delete-selected";
-import { useGoToEditSticker } from "./use-go-to-edit-sticker";
-import { useGoToNodesDragging } from "./use-go-to-nodes-dragging";
-import { useGoToSelectionWindow } from "./use-go-to-selection-window";
-import { useGoToWindowDragging } from "./use-go-to-window-dragging";
-import { useMouseDown } from "./use-mouse-down";
-import { useSelection } from "./use-selection";
-import type{ Selection } from "../../../model/selection";
-import type{ ViewModelParams } from "../../viewModelParams";
-import type{ ViewModel } from "../../viewModelType";
-
+import { useDeleteSelected } from './use-delete-selected';
+import { useGoToEditSticker } from './use-go-to-edit-sticker';
+import { useGoToNodesDragging } from './use-go-to-nodes-dragging';
+import { useGoToSelectionWindow } from './use-go-to-selection-window';
+import { useGoToWindowDragging } from './use-go-to-window-dragging';
+import { useMouseDown } from './use-mouse-down';
+import { useSelection } from './use-selection';
+import type { Selection } from '../../../model/selection';
+import type { ViewModelParams } from '../../viewModelParams';
+import type { ViewModel } from '../../viewModelType';
 
 export type IdleViewState = {
-  type: "idle";
+  type: 'idle';
   selectedIds: Set<string>;
   mouseDown?:
     | {
-        type: "overlay";
+        type: 'overlay';
         x: number;
         y: number;
         isRightClick: boolean;
       }
     | {
-        type: "node";
+        type: 'node';
         x: number;
         y: number;
         nodeId: string;
@@ -55,7 +54,7 @@ export function useIdleViewModel(params: ViewModelParams) {
         const clickResult = goToEditSticker.handleNodeClick(
           idleState,
           node.id,
-          e,
+          e
         );
         if (clickResult.preventNext) return;
         selection.handleNodeClick(idleState, node.id, e);
@@ -85,7 +84,7 @@ export function goToIdle({
   selectedIds,
 }: { selectedIds?: Selection } = {}): IdleViewState {
   return {
-    type: "idle",
+    type: 'idle',
     selectedIds: selectedIds ?? new Set(),
   };
 }

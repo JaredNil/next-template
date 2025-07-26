@@ -1,8 +1,8 @@
-import { Link, href } from "react-router-dom";
+import { Link, href } from 'react-router-dom';
 
-import { ROUTES } from "@/shared/routes/routes";
-import { Button } from "@/shared/ui/kit/button";
-import { Card, CardFooter, CardHeader } from "@/shared/ui/kit/card";
+import { ROUTES } from '@/shared/routes/routes';
+import { Button } from '@/shared/ui/kit/button';
+import { Card, CardFooter, CardHeader } from '@/shared/ui/kit/card';
 
 interface BoardsListCardProps {
   board: {
@@ -38,7 +38,7 @@ export function BoardsListCard({
             Создано: {new Date(board.createdAt).toLocaleDateString()}
           </div>
           <div className="text-sm text-gray-500">
-            Последнее открытие:{" "}
+            Последнее открытие:{' '}
             {new Date(board.lastOpenedAt).toLocaleDateString()}
           </div>
         </div>

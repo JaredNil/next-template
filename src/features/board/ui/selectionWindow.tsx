@@ -1,4 +1,4 @@
-import type { Rect } from "../model/rect";
+import type { Rect } from '../model/rect';
 
 export function SelectionWindow({ height, width, x, y }: Rect) {
   return (

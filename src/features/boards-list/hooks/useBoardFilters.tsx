@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import type { BoardSortOptions } from "@/features/boards-list/model";
+import type { BoardSortOptions } from '@/features/boards-list/model';
 
 export type BoardsFilters = {
   search: string;
@@ -8,8 +8,8 @@ export type BoardsFilters = {
 };
 
 export function useBoardFilters() {
-  const [search, setSearch] = useState("");
-  const [sort, setSort] = useState<BoardSortOptions>("lastOpenedAt");
+  const [search, setSearch] = useState('');
+  const [sort, setSort] = useState<BoardSortOptions>('lastOpenedAt');
 
   return {
     search,

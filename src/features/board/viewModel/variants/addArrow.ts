@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import { pointOnScreenToCanvas } from "../../model/screenToCanvas";
-import type { ViewModelParams } from "../viewModelParams";
-import type { ViewModel } from "../viewModelType";
-import { goToDrawArrow } from "./drawArrow";
-import { goToIdle } from "./idle";
+import { pointOnScreenToCanvas } from '../../model/screenToCanvas';
+import type { ViewModelParams } from '../viewModelParams';
+import type { ViewModel } from '../viewModelType';
+import { goToDrawArrow } from './drawArrow';
+import { goToIdle } from './idle';
 
 export type AddArrowViewState = {
-  type: "add-arrow";
+  type: 'add-arrow';
 };
 
 export function useAddArrowViewModel({
@@ -18,14 +18,14 @@ export function useAddArrowViewModel({
 }: ViewModelParams) {
   return (): ViewModel => ({
     nodes: nodesModel.nodes.map((node) => {
-      if (node.type === "sticker") {
+      if (node.type === 'sticker') {
         return {
           ...node,
           onMouseDown: (e: React.MouseEvent) => {
             const point = pointOnScreenToCanvas(
               { x: e.clientX, y: e.clientY },
               windowPositionModel.position,
-              canvasRect,
+              canvasRect
             );
 
             setViewState(goToDrawArrow(point, node.id));
@@ -36,7 +36,7 @@ export function useAddArrowViewModel({
     }),
     layout: {
       onKeyDown: (e) => {
-        if (e.key === "Escape") {
+        if (e.key === 'Escape') {
           setViewState(goToIdle());
         }
       },
@@ -48,9 +48,9 @@ export function useAddArrowViewModel({
             pointOnScreenToCanvas(
               { x: e.clientX, y: e.clientY },
               windowPositionModel.position,
-              canvasRect,
-            ),
-          ),
+              canvasRect
+            )
+          )
         ),
     },
     actions: {
@@ -64,6 +64,6 @@ export function useAddArrowViewModel({
 
 export function goToAddArrow(): AddArrowViewState {
   return {
-    type: "add-arrow",
+    type: 'add-arrow',
   };
 }

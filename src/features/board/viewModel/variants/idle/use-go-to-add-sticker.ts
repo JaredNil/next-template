@@ -1,11 +1,11 @@
-import type { ViewModelParams } from "../../viewModelParams";
-import { goToAddSticker } from "../addSticker";
+import type { ViewModelParams } from '../../viewModelParams';
+import { goToAddSticker } from '../addSticker';
 
 export function useGoToAddSticker(params: ViewModelParams) {
   const { setViewState } = params;
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === "s") {
+    if (e.key === 's') {
       setViewState(goToAddSticker());
     }
   };

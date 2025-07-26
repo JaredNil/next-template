@@ -1,9 +1,9 @@
-import type { ViewModelParams } from "../viewModelParams";
-import type { ViewModel } from "../viewModelType";
-import { goToIdle } from "./idle";
+import type { ViewModelParams } from '../viewModelParams';
+import type { ViewModel } from '../viewModelType';
+import { goToIdle } from './idle';
 
 export type EditStickerViewState = {
-  type: "edit-sticker";
+  type: 'edit-sticker';
   stickerId: string;
   newText?: string;
 };
@@ -14,7 +14,7 @@ export function useEditStickerViewModel({
 }: ViewModelParams) {
   return (viewState: EditStickerViewState): ViewModel => ({
     nodes: nodesModel.nodes.map((node) => {
-      if (node.id === viewState.stickerId && node.type === "sticker") {
+      if (node.id === viewState.stickerId && node.type === 'sticker') {
         return {
           ...node,
           isSelected: true,
@@ -33,11 +33,11 @@ export function useEditStickerViewModel({
     }),
     layout: {
       onKeyDown: (e) => {
-        if (e.key === "Escape") {
+        if (e.key === 'Escape') {
           if (viewState.newText) {
             nodesModel.updateStickerText(
               viewState.stickerId,
-              viewState.newText,
+              viewState.newText
             );
           }
           setViewState(goToIdle());
@@ -57,7 +57,7 @@ export function useEditStickerViewModel({
 
 export function goToEditSticker(stickerId: string): EditStickerViewState {
   return {
-    type: "edit-sticker",
+    type: 'edit-sticker',
     stickerId,
   };
 }

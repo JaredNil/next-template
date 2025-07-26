@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect } from 'react';
 
 export function useLayoutFocus() {
   const layoutRef = useRef<HTMLDivElement>(null);
@@ -9,15 +9,15 @@ export function useLayoutFocus() {
     }
 
     const handleVisibilityChange = () => {
-      if (document.visibilityState === "visible") {
+      if (document.visibilityState === 'visible') {
         layoutRef.current?.focus();
       }
     };
 
-    window.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
-      window.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, [layoutRef]);
 

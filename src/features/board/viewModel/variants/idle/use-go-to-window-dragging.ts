@@ -1,8 +1,8 @@
-import type { IdleViewState } from ".";
-import type { ViewModelParams } from "../../viewModelParams";
-import { goToWindowDragging } from "../windowDragging";
-import { distanceFromPoints } from "@/features/board/model/point";
-import { pointOnScreenToCanvas } from "@/features/board/model/screenToCanvas";
+import type { IdleViewState } from '.';
+import type { ViewModelParams } from '../../viewModelParams';
+import { goToWindowDragging } from '../windowDragging';
+import { distanceFromPoints } from '@/features/board/model/point';
+import { pointOnScreenToCanvas } from '@/features/board/model/screenToCanvas';
 
 export function useGoToWindowDragging({
   canvasRect,
@@ -17,7 +17,7 @@ export function useGoToWindowDragging({
           y: e.clientY,
         },
         windowPositionModel.position,
-        canvasRect,
+        canvasRect
       );
 
       if (distanceFromPoints(idleState.mouseDown, currentPoint) > 5) {
@@ -25,7 +25,7 @@ export function useGoToWindowDragging({
           goToWindowDragging({
             startPoint: idleState.mouseDown,
             endPoint: currentPoint,
-          }),
+          })
         );
       }
     }

@@ -1,18 +1,17 @@
-import React from "react";
+import React from 'react';
 
-import type { IdleViewState } from ".";
-import  type { ViewModelParams } from "../../viewModelParams";
+import type { IdleViewState } from '.';
+import type { ViewModelParams } from '../../viewModelParams';
 import {
   type SelectionModifier,
   selectItems,
-} from "@/features/board/model/selection";
-
+} from '@/features/board/model/selection';
 
 export function useSelection({ setViewState }: ViewModelParams) {
   const select = (
     lastState: IdleViewState,
     ids: string[],
-    modif: SelectionModifier,
+    modif: SelectionModifier
   ) => {
     setViewState({
       ...lastState,
@@ -27,12 +26,12 @@ export function useSelection({ setViewState }: ViewModelParams) {
   const handleNodeClick = (
     idleState: IdleViewState,
     nodeId: string,
-    e: React.MouseEvent,
+    e: React.MouseEvent
   ) => {
     if (e.ctrlKey || e.shiftKey) {
-      select(idleState, [nodeId], "toggle");
+      select(idleState, [nodeId], 'toggle');
     } else {
-      select(idleState, [nodeId], "replace");
+      select(idleState, [nodeId], 'replace');
     }
   };
 
@@ -40,7 +39,7 @@ export function useSelection({ setViewState }: ViewModelParams) {
     if (idleState.mouseDown) {
       setViewState({
         ...idleState,
-        selectedIds: selectItems(idleState.selectedIds, [], "replace"),
+        selectedIds: selectItems(idleState.selectedIds, [], 'replace'),
       });
     }
   };

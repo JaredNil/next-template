@@ -1,5 +1,5 @@
-import clsx from "clsx";
-import React, { type Ref, useLayoutEffect, useRef, useState } from "react";
+import clsx from 'clsx';
+import React, { type Ref, useLayoutEffect, useRef, useState } from 'react';
 
 export function Sticker({
   id,
@@ -31,8 +31,8 @@ export function Sticker({
       data-id={id}
       ref={ref}
       className={clsx(
-        "absolute bg-yellow-300 px-2 py-4 rounded-xs shadow-md text-left",
-        isSelected && "outline outline-2 outline-blue-500 ",
+        'absolute bg-yellow-300 px-2 py-4 rounded-xs shadow-md text-left',
+        isSelected && 'outline outline-2 outline-blue-500 '
       )}
       style={{ transform: `translate(${x}px, ${y}px)` }}
       onClick={onClick}
@@ -73,7 +73,7 @@ function TextareaAutoSize({
     <div className="relative">
       <div
         ref={ref}
-        className={clsx("whitespace-pre-wrap ", isEditing && "opacity-0")}
+        className={clsx('whitespace-pre-wrap ', isEditing && 'opacity-0')}
       >
         {value}
       </div>

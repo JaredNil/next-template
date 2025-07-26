@@ -1,21 +1,21 @@
-import { ArrowRightIcon, StickerIcon } from "lucide-react";
+import { ArrowRightIcon, StickerIcon } from 'lucide-react';
 
-import { useCanvasRect } from "./hooks/useCanvasRect";
-import { useLayoutFocus } from "./hooks/useLayoutFocus";
-import { useNodesDimensions } from "./hooks/useNodesDimensions";
-import { useWindowEvents } from "./hooks/useWindowEvents";
-import { useNodes } from "./model/nodes";
-import { useWindowPositionModel } from "./model/windowPosition";
-import { ActionButton } from "./ui/actionButton";
-import { Actions } from "./ui/actions";
-import { Canvas } from "./ui/canvas";
-import { Dots } from "./ui/dots";
-import { Layout } from "./ui/layout";
-import { Arrow } from "./ui/nodes/arrow";
-import { Sticker } from "./ui/nodes/sticker";
-import { Overlay } from "./ui/overlay";
-import { SelectionWindow } from "./ui/selectionWindow";
-import { useViewModel } from "./viewModel/useViewModel";
+import { useCanvasRect } from './hooks/useCanvasRect';
+import { useLayoutFocus } from './hooks/useLayoutFocus';
+import { useNodesDimensions } from './hooks/useNodesDimensions';
+import { useWindowEvents } from './hooks/useWindowEvents';
+import { useNodes } from './model/nodes';
+import { useWindowPositionModel } from './model/windowPosition';
+import { ActionButton } from './ui/actionButton';
+import { Actions } from './ui/actions';
+import { Canvas } from './ui/canvas';
+import { Dots } from './ui/dots';
+import { Layout } from './ui/layout';
+import { Arrow } from './ui/nodes/arrow';
+import { Sticker } from './ui/nodes/sticker';
+import { Overlay } from './ui/overlay';
+import { SelectionWindow } from './ui/selectionWindow';
+import { useViewModel } from './viewModel/useViewModel';
 
 function BoardPage() {
   const nodesModel = useNodes();
@@ -53,10 +53,10 @@ function BoardPage() {
         windowPosition={windowPosition}
       >
         {viewModel.nodes.map((node) => {
-          if (node.type === "sticker") {
+          if (node.type === 'sticker') {
             return <Sticker key={node.id} {...node} ref={nodeRef} />;
           }
-          if (node.type === "arrow") {
+          if (node.type === 'arrow') {
             return <Arrow key={node.id} {...node} ref={nodeRef} />;
           }
         })}

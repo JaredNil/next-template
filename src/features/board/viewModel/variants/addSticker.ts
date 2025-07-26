@@ -1,10 +1,10 @@
-import { pointOnScreenToCanvas } from "../../model/screenToCanvas";
-import type { ViewModelParams } from "../viewModelParams";
-import type { ViewModel } from "../viewModelType";
-import { goToIdle } from "./idle";
+import { pointOnScreenToCanvas } from '../../model/screenToCanvas';
+import type { ViewModelParams } from '../viewModelParams';
+import type { ViewModel } from '../viewModelType';
+import { goToIdle } from './idle';
 
 export type AddStickerViewState = {
-  type: "add-sticker";
+  type: 'add-sticker';
 };
 
 export function useAddStickerViewModel({
@@ -17,7 +17,7 @@ export function useAddStickerViewModel({
     nodes: nodesModel.nodes,
     layout: {
       onKeyDown: (e) => {
-        if (e.key === "Escape") {
+        if (e.key === 'Escape') {
           setViewState(goToIdle());
         }
       },
@@ -29,11 +29,11 @@ export function useAddStickerViewModel({
         const point = pointOnScreenToCanvas(
           { x: e.clientX, y: e.clientY },
           windowPositionModel.position,
-          canvasRect,
+          canvasRect
         );
 
         nodesModel.addSticker({
-          text: "Default",
+          text: 'Default',
           x: point.x,
           y: point.y,
         });
@@ -51,6 +51,6 @@ export function useAddStickerViewModel({
 
 export function goToAddSticker(): AddStickerViewState {
   return {
-    type: "add-sticker",
+    type: 'add-sticker',
   };
 }

@@ -1,7 +1,7 @@
-import { PlusIcon } from "lucide-react";
+import { PlusIcon } from 'lucide-react';
 
-import { cn } from "@/shared/lib/css";
-import { Button } from "@/shared/ui/kit/button";
+import { cn } from '@/shared/lib/css';
+import { Button } from '@/shared/ui/kit/button';
 
 interface Template {
   id: string;
@@ -24,8 +24,8 @@ export function TemplateCard({
   return (
     <div
       className={cn(
-        "group relative rounded-lg border p-4 hover:border-primary transition-colors cursor-pointer",
-        className,
+        'group relative rounded-lg border p-4 hover:border-primary transition-colors cursor-pointer',
+        className
       )}
       onClick={() => onSelect(template)}
     >

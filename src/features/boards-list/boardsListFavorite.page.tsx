@@ -1,22 +1,22 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { useBoardsList } from "./hooks";
-import { BoardCard } from "./ui/boardCard";
-import { BoardItem } from "./ui/boardItem";
-import { BoardsSidebar } from "./ui/boardSidebar";
+import { useBoardsList } from './hooks';
+import { BoardCard } from './ui/boardCard';
+import { BoardItem } from './ui/boardItem';
+import { BoardsSidebar } from './ui/boardSidebar';
 import {
   BoardsListLayout,
   BoardsListLayoutContent,
   BoardsListLayoutHeader,
-} from "./ui/boardsListLayout";
-import { ViewModeToggle, type ViewMode } from "./ui/viewModeToggle";
+} from './ui/boardsListLayout';
+import { ViewModeToggle, type ViewMode } from './ui/viewModeToggle';
 
 function BoardsListFavoritePage() {
   const boardsQuery = useBoardsList({
     isFavorite: true,
   });
 
-  const [viewMode, setViewMode] = useState("cards" as ViewMode);
+  const [viewMode, setViewMode] = useState('cards' as ViewMode);
 
   return (
     <>

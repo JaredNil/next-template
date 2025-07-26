@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import type { RefCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from 'react';
+import type { RefCallback } from 'react';
 
 export type NodeDimensions = {
   width: number;
@@ -10,7 +10,7 @@ export type NodesDimensionsMap = Record<string, NodeDimensions>;
 
 export const useNodesDimensions = () => {
   const [nodesDimensions, setNodesDimensions] = useState<NodesDimensionsMap>(
-    {},
+    {}
   );
 
   const resizeObserverRef = useRef<ResizeObserver | undefined>(undefined);
@@ -27,7 +27,7 @@ export const useNodesDimensions = () => {
                 height: entry.borderBoxSize[0].blockSize,
               },
             ])
-            .filter((entry) => !!entry[0]),
+            .filter((entry) => !!entry[0])
         );
 
         setNodesDimensions((prev) => ({
@@ -44,7 +44,7 @@ export const useNodesDimensions = () => {
       return () => {
         setNodesDimensions((prev) => {
           const newNodesDimensions = { ...prev };
-          delete newNodesDimensions[(el as HTMLElement).dataset.id ?? ""];
+          delete newNodesDimensions[(el as HTMLElement).dataset.id ?? ''];
           return newNodesDimensions;
         });
         resizeObserver.unobserve(el);
@@ -58,7 +58,7 @@ export const useNodesDimensions = () => {
         resizeObserverRef.current.disconnect();
       }
     },
-    [],
+    []
   );
 
   return {
