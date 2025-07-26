@@ -1,12 +1,12 @@
 import { ArrowRightIcon, StickerIcon } from "lucide-react";
 
-import { useCanvasRect } from "./hooks/use-canvas-rect";
-import { useLayoutFocus } from "./hooks/use-layout-focus";
-import { useNodesDimensions } from "./hooks/use-nodes-dimensions";
-import { useWindowEvents } from "./hooks/use-window-events";
+import { useCanvasRect } from "./hooks/useCanvasRect";
+import { useLayoutFocus } from "./hooks/useLayoutFocus";
+import { useNodesDimensions } from "./hooks/useNodesDimensions";
+import { useWindowEvents } from "./hooks/useWindowEvents";
 import { useNodes } from "./model/nodes";
-import { useWindowPositionModel } from "./model/window-position";
-import { ActionButton } from "./ui/action-button";
+import { useWindowPositionModel } from "./model/windowPosition";
+import { ActionButton } from "./ui/actionButton";
 import { Actions } from "./ui/actions";
 import { Canvas } from "./ui/canvas";
 import { Dots } from "./ui/dots";
@@ -14,8 +14,8 @@ import { Layout } from "./ui/layout";
 import { Arrow } from "./ui/nodes/arrow";
 import { Sticker } from "./ui/nodes/sticker";
 import { Overlay } from "./ui/overlay";
-import { SelectionWindow } from "./ui/selection-window";
-import { useViewModel } from "./view-model/use-view-model";
+import { SelectionWindow } from "./ui/selectionWindow";
+import { useViewModel } from "./viewModel/useViewModel";
 
 function BoardPage() {
   const nodesModel = useNodes();

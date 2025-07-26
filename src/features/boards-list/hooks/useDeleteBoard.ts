@@ -1,7 +1,7 @@
 import { useQueryClient } from "@tanstack/react-query";
 
 import { rqClient } from "@/shared/openapi/instance";
-import type { Board } from "@/shared/types";
+import type { Board } from "@/features/boards-list/model";
 
 export function useDeleteBoard() {
   const queryClient = useQueryClient();

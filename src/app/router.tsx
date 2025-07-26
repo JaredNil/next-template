@@ -1,6 +1,6 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
 
-import { protectedLoader, ProtectedRoute } from "./protected-route";
+import { protectedLoader, ProtectedRoute } from "./protectedRoute";
 import { App } from "@/app/app";
 import { ROUTES } from "@/shared/routes/routes";
 
@@ -14,12 +14,12 @@ export const router = createBrowserRouter([
         children: [
           {
             path: ROUTES.BOARDS,
-            lazy: () => import("@/features/boards-list/boards-list.page"),
+            lazy: () => import("@/features/boards-list/boardsList.page"),
           },
           {
             path: ROUTES.BOARDS_FAV,
             lazy: () =>
-              import("@/features/boards-list/boards-list-favorite.page"),
+              import("@/features/boards-list/boardsListFavorite.page"),
           },
           {
             path: ROUTES.BOARD,

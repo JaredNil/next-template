@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import type { Point } from "../domain/point";
+import type { Point } from "./point";
 
 type NodeBase = {
   id: string;

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-import { AuthLayout } from "./ui/auth-layout";
-import { LoginForm } from "./ui/login-form";
+import { AuthLayout } from "./ui/authLayout";
+import { LoginForm } from "./ui/loginForm";
 import { ROUTES } from "@/shared/routes/routes";
 
 function LoginPage() {

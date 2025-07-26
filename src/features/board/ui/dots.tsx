@@ -1,6 +1,6 @@
 import React from "react";
 
-import type { WindowPosition } from "../model/window-position";
+import type { WindowPosition } from "../model/windowPosition";
 
 export function Dots({ windowPosition }: { windowPosition: WindowPosition }) {
   return (

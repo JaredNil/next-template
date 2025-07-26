@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import type { BoardSortOptions } from "@/shared/types";
+import type { BoardSortOptions } from "@/features/boards-list/model";
 
 export type BoardsFilters = {
   search: string;

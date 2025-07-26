@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import {type Ref } from "react";
 
-import {type Point, diffPoints } from "../../domain/point";
+import {type Point, diffPoints } from "../../model/point";
 
 export function Arrow({
   start,

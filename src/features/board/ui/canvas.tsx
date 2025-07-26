@@ -1,6 +1,6 @@
 import React, { type Ref } from "react";
 
-import { type WindowPosition } from "../model/window-position";
+import { type WindowPosition } from "../model/windowPosition";
 
 export function Canvas({
   children,

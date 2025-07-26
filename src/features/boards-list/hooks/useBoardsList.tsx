@@ -2,7 +2,7 @@ import { keepPreviousData } from "@tanstack/react-query";
 import { useCallback, type RefCallback } from "react";
 
 import { rqClient } from "@/shared/openapi/instance";
-import type { BoardSortOptions } from "@/shared/types";
+import type { BoardSortOptions } from "@/features/boards-list/model";
 
 type useBoardsListParams = {
   limit?: number;
