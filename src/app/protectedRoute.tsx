@@ -1,4 +1,4 @@
-import { Outlet, Navigate, redirect } from 'react-router-dom';
+import { Outlet, redirect } from 'react-router-dom';
 
 import { ROUTES } from '@/shared/routes/routes';
 import { useSession } from '@/shared/session/session';
