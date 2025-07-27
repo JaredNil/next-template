@@ -2,11 +2,6 @@ import { PlusIcon } from 'lucide-react';
 import { useState } from 'react';
 
 import { useBoardFilters, useBoardsList, useCreateBoard } from './hooks';
-import {
-  TemplatesGallery,
-  TemplatesModal,
-  useTemplatesModal,
-} from '../board-templates';
 import { BoardCard } from './ui/boardCard';
 import { BoardItem } from './ui/boardItem';
 import { BoardsSidebar } from './ui/boardSidebar';
@@ -40,13 +35,10 @@ function BoardsListPage() {
 
   const [viewMode, setViewMode] = useState('cards' as ViewMode);
 
-  const templatesModal = useTemplatesModal();
 
   return (
     <>
-      <TemplatesModal />
       <BoardsListLayout
-        templates={<TemplatesGallery />}
         sidebar={<BoardsSidebar />}
         header={
           <BoardsListLayoutHeader
@@ -54,7 +46,7 @@ function BoardsListPage() {
             description="Здесь вы можете рассматривать и управлять своими досками"
             actions={
               <div className="flex gap-2">
-                <Button variant="outline" onClick={() => templatesModal.open()}>
+                <Button variant="outline" onClick={() => {}}>
                   Выбрать шаблон
                 </Button>
                 <Button
