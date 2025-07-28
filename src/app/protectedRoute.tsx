@@ -1,23 +1,23 @@
-import { Outlet, redirect } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
-import { ROUTES } from '@/shared/routes/routes';
-import { useSession } from '@/shared/session/session';
+// import { useSession } from '@/shared/session/session';
 
 export function ProtectedRoute() {
-  const { session } = useSession();
+  // const { session } = useSession();
 
-  if (!session) {
-    return <Outlet />;
-    // return <Navigate to={ROUTES.LOGIN} />;
-  }
+  // if (!session) {
+  //   return <Outlet />;
+  //   // return <Navigate to={ROUTES.LOGIN} />;
+  // }
   return <Outlet />;
 }
 
-export async function protectedLoader() {
-  const token = await useSession.getState().refreshToken();
+// Защита от получения доступа до верификации пользователя - переработать
+// export async function protectedLoader() {
+//   const token = await useSession.getState().refreshToken();
 
-  if (!token) {
-    redirect(ROUTES.LOGIN);
-  }
-  return null;
-}
+//   if (!token) {
+//     redirect(ROUTES.LOGIN);
+//   }
+//   return null;
+// }

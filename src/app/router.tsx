@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { protectedLoader, ProtectedRoute } from './protectedRoute';
+import { ProtectedRoute } from './protectedRoute';
 import { App } from '@/app/app';
 import { ErrorBoundary } from '@/shared/errorBoundary/error-boundary';
 import { ROUTES } from '@/shared/routes/routes';
@@ -10,7 +10,6 @@ export const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        loader: protectedLoader,
         element: <ProtectedRoute />,
         children: [
           {
