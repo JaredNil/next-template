@@ -1,7 +1,7 @@
-import { BoardsFavoriteToggle } from '../../features/boards-list/ui/boardsFavoriteToggle';
-import { BoardsListCard } from '../../features/boards-list/ui/boardsListCard';
 import { useDeleteBoard } from '../../features/boards-list/hooks';
 import { useUpdateFavorite } from '../../features/boards-list/hooks';
+import { BoardsFavoriteToggle } from '../../features/boards-list/ui/boardsFavoriteToggle';
+import { BoardsListCard } from '../../features/boards-list/ui/boardsListCard';
 import type { ApiSchemas } from '../../shared/openapi/schema';
 import { Button } from '../../shared/ui/kit/button';
 

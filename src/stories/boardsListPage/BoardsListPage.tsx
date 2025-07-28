@@ -14,6 +14,7 @@ import {
   ViewModeToggle,
   type ViewMode,
 } from '../../features/boards-list/ui/viewModeToggle';
+import type { ApiSchemas } from '../../shared/openapi/schema';
 import { Button } from '../../shared/ui/kit/button';
 import { Input } from '../../shared/ui/kit/input';
 import {
@@ -23,7 +24,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../../shared/ui/kit/select';
-import type { ApiSchemas } from '../../shared/openapi/schema';
 
 // Mock data for stories
 const mockBoards: ApiSchemas['Board'][] = [

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fn } from 'storybook/test';
 import { PlusIcon, TrashIcon, EditIcon } from 'lucide-react';
+import { fn } from 'storybook/test';
 
 import { ActionButton } from './ActionButton';
 

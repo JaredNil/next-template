@@ -1,16 +1,15 @@
-import { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
-import { ROUTES } from "../routes/routes";
+import { ROUTES } from '../routes/routes';
 
 export function ErrorBoundary() {
-
   const [shouldRedirect, setShouldRedirect] = useState(false);
-  useEffect(()=> {
-    const timer = setTimeout(()=>{
+  useEffect(() => {
+    const timer = setTimeout(() => {
       setShouldRedirect(true);
     }, 2000);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -37,9 +36,9 @@ export function ErrorBoundary() {
   //     </div>
   //   );
   // } else {
-    return (
-      <>
-        <h1>Unknown Error</h1>
-      </>
-    );
+  return (
+    <>
+      <h1>Unknown Error</h1>
+    </>
+  );
 }

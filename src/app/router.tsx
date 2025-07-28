@@ -1,4 +1,4 @@
-import { createBrowserRouter, redirect } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 
 import { protectedLoader, ProtectedRoute } from './protectedRoute';
 import { App } from '@/app/app';
@@ -28,6 +28,7 @@ export const router = createBrowserRouter([
           },
         ],
       },
+
       {
         path: ROUTES.LOGIN,
         lazy: () => import('@/features/auth/login.page'),
@@ -38,7 +39,7 @@ export const router = createBrowserRouter([
       },
       {
         path: ROUTES.HOME,
-        loader: () => redirect(ROUTES.BOARDS),
+        lazy: () => import('@/features/home/home.page'),
       },
     ],
     errorElement: <ErrorBoundary />,

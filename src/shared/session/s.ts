@@ -1,8 +1,8 @@
-import { createGStore } from "create-gstore";
-import { jwtDecode } from "jwt-decode";
-import { useState } from "react";
+import { createGStore } from 'create-gstore';
+import { jwtDecode } from 'jwt-decode';
+import { useState } from 'react';
 
-import { publicFetchClient } from "../openapi/instance";
+import { publicFetchClient } from '../openapi/instance';
 
 type Session = {
   userId: string;
@@ -11,7 +11,7 @@ type Session = {
   iat: number;
 };
 
-const TOKEN_KEY = "token";
+const TOKEN_KEY = 'token';
 
 let refreshTokenPromise: Promise<string | null> | null = null;
 
@@ -40,7 +40,7 @@ export const useSession = createGStore(() => {
     if (session.exp < Date.now() / 1000) {
       if (!refreshTokenPromise) {
         refreshTokenPromise = publicFetchClient
-          .POST("/auth/refresh")
+          .POST('/auth/refresh')
           .then((r) => r.data?.accessToken ?? null)
           .then((newToken) => {
             if (newToken) {

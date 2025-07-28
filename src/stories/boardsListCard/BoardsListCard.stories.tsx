@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { BrowserRouter } from 'react-router-dom';
 import { HeartIcon, TrashIcon } from 'lucide-react';
+import { BrowserRouter } from 'react-router-dom';
 
 import { BoardsListCard } from './BoardsListCard';
 import { Button } from '../../shared/ui/kit/button';

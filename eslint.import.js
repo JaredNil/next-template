@@ -31,8 +31,6 @@ export const eslintImportConfig = {
           },
         ],
 
-
-        
         pathGroupsExcludedImportTypes: ['builtin', 'external'],
         alphabetize: { order: 'asc', caseInsensitive: true },
         'newlines-between': 'always',

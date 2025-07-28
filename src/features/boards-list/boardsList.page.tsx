@@ -35,7 +35,6 @@ function BoardsListPage() {
 
   const [viewMode, setViewMode] = useState('cards' as ViewMode);
 
-
   return (
     <>
       <BoardsListLayout
